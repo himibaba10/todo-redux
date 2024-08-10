@@ -1,6 +1,7 @@
 import { useAppDispatch } from '@/redux/hooks';
 import { Button } from '../ui/button';
-import { deleteTodo } from '@/redux/features/todoSlice';
+import { deleteTodo, toggleTodoComplete } from '@/redux/features/todoSlice';
+import { FormEvent } from 'react';
 
 const TodoCard = ({
   todo,
@@ -12,13 +13,19 @@ const TodoCard = ({
     isCompleted?: boolean;
   };
 }) => {
-  const { id, title, description } = todo;
+  const { id, title, description, isCompleted } = todo;
   const dispatch = useAppDispatch();
 
   return (
     <div className="flex justify-between items-center border-b border-gray-300 py-3">
       <span className="w-[5%]">
-        <input type="checkbox" name="isCompleted" id="isCompleted" />
+        <input
+          type="checkbox"
+          name="isCompleted"
+          id="isCompleted"
+          onChange={() => dispatch(toggleTodoComplete(id))}
+          checked={isCompleted}
+        />
       </span>
       <span className="w-1/4">{title}</span>
       <span className="w-[45%]">{description}</span>
