@@ -6,6 +6,7 @@ import { useAppSelector } from '@/redux/hooks';
 
 const Todos = () => {
   const { todos } = useAppSelector((state) => state.todos);
+  console.log({ todos });
   return (
     <Container>
       <h1 className="text-4xl text-center font-bold mb-10">My Todos</h1>
@@ -21,7 +22,7 @@ const Todos = () => {
           <span className="w-1/4">Action</span>
         </div>
         {todos.map((todo) => (
-          <TodoCard todo={todo} />
+          <TodoCard key={todo.id} todo={todo} />
         ))}
       </div>
     </Container>

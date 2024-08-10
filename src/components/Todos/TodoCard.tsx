@@ -1,11 +1,20 @@
+import { useAppDispatch } from '@/redux/hooks';
 import { Button } from '../ui/button';
+import { deleteTodo } from '@/redux/features/todoSlice';
 
 const TodoCard = ({
   todo,
 }: {
-  todo: { title: string; description: string; isCompleted?: boolean };
+  todo: {
+    id: string;
+    title: string;
+    description: string;
+    isCompleted?: boolean;
+  };
 }) => {
-  const { title, description } = todo;
+  const { id, title, description } = todo;
+  const dispatch = useAppDispatch();
+
   return (
     <div className="flex justify-between items-center border-b border-gray-300 py-3">
       <span className="w-[5%]">
@@ -31,7 +40,7 @@ const TodoCard = ({
           </svg>
         </Button>
 
-        <Button>
+        <Button onClick={() => dispatch(deleteTodo(id))}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
