@@ -10,7 +10,6 @@ const Todos = () => {
       <h1 className="text-4xl text-center font-bold mb-10">My Todos</h1>
       <div className="flex items-center justify-between mb-3">
         <TodoModal />
-        <TodoFilter />
       </div>
       <PendingTodos />
       <h1 className="text-4xl text-center font-bold my-10">Completed Todos</h1>
