@@ -1,5 +1,4 @@
 import Container from '@/components/ui/Container';
-import { TodoFilter } from '@/components/Todos/TodoFilter';
 import { TodoModal } from '@/components/Todos/TodoModal';
 import PendingTodos from '@/components/Todos/PendingTodos';
 import CompletedTodos from '@/components/Todos/CompletedTodos';
